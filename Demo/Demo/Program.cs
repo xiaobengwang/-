@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Calculate
 {
-    class Calculator
+    public class Calculator
     {
         static Dictionary<char, int> priorities = null;       //这是干嘛的 ？ Allen:这是操作符优先级字典，key是操作符，value是优先级，值越大，优先级越高
         const string operators = "+-*/";                      //声明加减乘除4个字符串，并且不可改变
@@ -41,7 +41,7 @@ namespace Calculate
             return op == '+' || op == '-' || op == '*' || op == '/';
         }
 
-        static Queue<object> PreOrderToPostOrder(string expression) //这是设置什么的？ Allen:这就是中序表达式转
+        public static Queue<object> PreOrderToPostOrder(string expression) //这是设置什么的？ Allen:这就是中序表达式转
         {
             var result = new Queue<object>();
             var operatorStack = new Stack<char>();
@@ -106,7 +106,7 @@ namespace Calculate
             return result;
         }
 
-        static double Calucate(string expression)//进行报错部分 Allen:这里不是报错，是程序的核心逻辑，也就是计算表达式的部分
+        public static double Calucate(string expression)//进行报错部分 Allen:这里不是报错，是程序的核心逻辑，也就是计算表达式的部分
         {
             try
             {
