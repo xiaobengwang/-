@@ -198,7 +198,7 @@ namespace FtpTest1
                     
                 }
 
-                if (folderArrayList.Count == 1 && fileArrayList.Count == 0)
+                if (folderArrayList.Count == 0 && fileArrayList.Count == 0)
                 {
                    this. DeleteFolder(ftpURI+path);
                 }
