@@ -254,14 +254,17 @@ namespace FtpTest1
                 }
             }
             string[] c= this.GetDirectoryList(filepath);
-        
-                foreach (string file2 in c)
+
+          
+
+                string[] b= this.DeleteFolder(filepath);
+                if (b != null && b.Length > 0)
                 {
-
-                    this.DeleteFolder(ftpURI+filepath + "/" + file2);
+                    foreach (string file1 in b)
+                    {
+                        this.shanchusuoyou( filepath + "/" + file);
+                    }
                 }
-
-
            
 
            
