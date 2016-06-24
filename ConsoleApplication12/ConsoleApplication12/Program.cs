@@ -49,7 +49,7 @@ namespace Calculate
             }
         }
 
-        public static double Max(char[] charArray)
+        public static double Max(double[] charArray)
         {
            
             double maxVal = charArray[0];
@@ -62,8 +62,8 @@ namespace Calculate
                 }
                
             }
-           double str = maxVal - 48;
-            return str;
+           
+            return maxVal;
         }
 
         static double Computer(double rightNum, char op)
@@ -236,9 +236,9 @@ namespace Calculate
                 double left, right;
                 object cur;
                 string str = Convert.ToString(' ');
-                char[] Str = new Char[100];
+               double[] Str = new double[100];
 
-                List<char> StrList = new List<char>();
+                List<double> StrList = new List<double>();
 
                 while (rpn.Count > 0)
                 {
@@ -269,23 +269,23 @@ namespace Calculate
                             if (operandStack.Count > 0)
                             {
 
-                                str += Convert.ToString(operandStack.Pop());
-                                for (int i = str.Length - 1, j = 0; i >= 0; i--)
-                                {
-                                    Str[j++] = str[i];
-                                }
+                                StrList.Add(operandStack.Pop());
+                               
+                             
                             }
+                            Str = StrList.ToArray();
                             operandStack.Push(Max(Str));
                         }
 
                     }
                     else if (IsMid(Convert.ToChar(cur)))
                     {
-                        str += Convert.ToString(operandStack.Pop());
-
+                        StrList.Add(operandStack.Pop());
+                       
                     }
                     else
                     {
+                     
                         operandStack.Push(double.Parse(cur.ToString()));
                     }
                 }
